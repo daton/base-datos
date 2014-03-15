@@ -34,7 +34,7 @@ public class Malo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-          request.setAttribute("mensaje","Estas muy menso");
+          request.setAttribute("mensaje","Puto el que lo lea");
           
           RequestDispatcher despachar =request.getRequestDispatcher("/mala.jsp");
           despachar.forward(request, response);
