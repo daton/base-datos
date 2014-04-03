@@ -8,6 +8,7 @@ package com.jc.controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +32,14 @@ public class ServletAutenticar extends HttpServlet {
           String name=request.getParameter("nombre");
           String pas=request.getParameter("password");
           out.println("Bienvenido "+name);
+          if(pas.equals("hola")){
+          RequestDispatcher despachar= request.getRequestDispatcher("/maldito-gobierno-corrupto.html");
+          despachar.forward(request, response);
+          }else{
+              request.setAttribute("valor", "los datos estan mal");
+              RequestDispatcher despachar= request.getRequestDispatcher("/autenticar.jsp");
+          despachar.forward(request, response);
+          }
       
     }
 }
