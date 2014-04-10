@@ -36,18 +36,6 @@ public class ServletInsertarUsuario extends HttpServlet {
     float sueldo=    Float.parseFloat(request.getParameter("sueldo"));
     
     
-    Usuario u=new Usuario();
-    u.setId(id);
-    u.setNombre(nombre);
-    u.setSueldo(sueldo);
-   
-    DAOUsuario dao=new DAOUsuario();
-        try {
-            dao.insertar(u);
-            mensaje="Tu usuario se guardo con exito :)";
-        } catch (Exception ex) {
-   mensaje=ex.getMessage();
-        }
-              out.println(mensaje);    
+    
     }
 }
