@@ -17,14 +17,14 @@ public class TestProcedimiento {
     public static void main(String args[])throws Exception{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
-     CallableStatement callate=con.prepareCall("{call autenticar2(?,?,?)}");
+     CallableStatement callate=con.prepareCall("{call pon_tu_procedimiento(?,?,?)}");
         callate.registerOutParameter(1,java.sql.Types.INTEGER);
         callate.setString(2,"juan");
-        callate.setString(3,"campo");
+        callate.setString(3,"campos");
       
         callate.execute();
         int pk=callate.getInt(1);
-        System.out.println("El status de autenticacion es:"+pk);
+        System.out.println("El id ingresado es:"+pk);
     }
     
 }
