@@ -18,7 +18,7 @@ public class ServletHola extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("Application/msexcel");
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("Tu IP de acceso es:"+request.getRemoteAddr());
         

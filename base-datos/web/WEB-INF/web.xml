@@ -10,7 +10,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Algo</servlet-name>
-        <url-pattern>/primero.xls</url-pattern>
+        <url-pattern>/hola</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletAutenticar</servlet-name>
