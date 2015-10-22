@@ -1,5 +1,5 @@
 <h2> Aqui esta todo el codiguito</h2>
-
+```
 CREATE TABLE CLIENTE (ID_CLIENTE INTEGER,
 NOMBRE VARCHAR2(30),
 SUELDO_BASE FLOAT, 
@@ -51,4 +51,4 @@ MY_NUMERO_BASE,MY_CP, MY_MUNICIPIO);
 END;
 /
 
-´´´
+```
