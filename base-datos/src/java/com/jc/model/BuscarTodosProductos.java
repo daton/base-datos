@@ -32,6 +32,7 @@ public class BuscarTodosProductos extends javax.swing.JFrame {
         botonBuscarProductos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablita = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +63,10 @@ public class BuscarTodosProductos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonBuscarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botonBuscarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
@@ -70,7 +74,9 @@ public class BuscarTodosProductos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(botonBuscarProductos)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonBuscarProductos)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -81,13 +87,14 @@ public class BuscarTodosProductos extends javax.swing.JFrame {
 
     private void botonBuscarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarProductosActionPerformed
         // TODO add your handling code here:
-        try{
+   Integer id=   Integer.parseInt(jTextField1.getText());
+       try{
             //paso 1 establecer conexion a Oracle
             Connection con=Conexion.conectarse();
             //paso 2 Crear un Statement de sql
             Statement st=con.createStatement();
             //Paso 3 con el statement invocamos la consulta
-ResultSet res=st.executeQuery("SELECT * FROM producto order by id_producto");
+ResultSet res=st.executeQuery("SELECT * FROM producto where id_producto="+id+" order by id_producto");
        //Paso 4 iteramos el ResultSet con un hermoso while
 
   int filas=0;
@@ -98,13 +105,13 @@ ResultSet res=st.executeQuery("SELECT * FROM producto order by id_producto");
        tablita.
         setModel(new DefaultTableModel(new String[]
         {"id","nombre","precio"},filas ));
-       ResultSet res2=st.executeQuery("SELECT * FROM producto order by id_producto");
+       ResultSet res2=st.executeQuery("SELECT * FROM producto where id_producto="+id+" order by id_producto");
        int fila=0;
        while(res2.next()){
-        Integer id=       res2.getInt(1);
+        Integer ide=       res2.getInt(1);
         String nombre=    res2.getString(2); 
         Float precio=    res2.getFloat(3);
-        tablita.setValueAt(id,fila , 0);
+        tablita.setValueAt(ide,fila , 0);
         tablita.setValueAt(nombre, fila, 1);
         tablita.setValueAt(precio,fila, 2);
         fila++;
@@ -157,6 +164,7 @@ ResultSet res=st.executeQuery("SELECT * FROM producto order by id_producto");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonBuscarProductos;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tablita;
     // End of variables declaration//GEN-END:variables
 }
