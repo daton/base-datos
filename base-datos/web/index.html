@@ -11,15 +11,15 @@
 <script>
 $(document).ready(function(e) {
    // alert("probando jquery");
-   $("#conectarse").click(function(){
+   $("#guardar").click(function(){
 	$.ajax({
-         url:'algodon',
+         url:'http://localhost:9999/mensaje/'+$("#titulo").val()+'/'+$("#cuerpo").val(),
          type:'post',
-         data:{
+         /*data:{
            password:$("#password").val(),
            login:$("#login").val()
            
-         },
+         },*/
          success:function(datos){
             $("#resultado").html(datos); 
          },
@@ -38,15 +38,16 @@ $(document).ready(function(e) {
 
 <form class="form-inline">
   <div class="form-group">
-    <label for="exampleInputName2">Login</label>
-    <input type="text" class="form-control" id="exampleInputName2" placeholder="mete tu login">
+    <label for="exampleInputName2">Titulo</label>
+    <input type="text" class="form-control" id="titulo" placeholder="mete tu titulo">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail2">Password</label>
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="mete tu password">
+    <label for="exampleInputEmail2">Cuerpo</label>
+    <input type="text" class="form-control" id="cuerpo" placeholder="echame tu cuerpo">
   </div>
-  <button type="submit" class="btn btn-default">Ingresar a la app</button>
+  <button id="guardar" type="button" class="btn btn-default">Guardar mensajito</button>
 </form>
+    <div id="resultado"></div>
 </body>
 </html>
 
