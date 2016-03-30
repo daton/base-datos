@@ -20,7 +20,7 @@ public class ServletHola extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("Tu IP de acceso es:"+request.getRemoteAddr());
+        out.println("Vamos a obtener una galletita:"+request.getCookies()[0].getValue());
         
         
         
