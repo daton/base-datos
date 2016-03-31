@@ -14,15 +14,16 @@ $(document).ready(function(e) {
    $("#guardar").click(function(){
 	$.ajax({
          //url:'http://localhost:9999/mensaje/'+$("#titulo").val()+'/'+$("#cuerpo").val(),
-         url:'hola',
-         type:'get',
-         /*data:{
-           password:$("#password").val(),
-           login:$("#login").val()
+         url:'actualizar-producto',
+         type:'post',
+         data:{
+           id:$("#id").val(),
+           precio:$("#precio").val()
            
-         },*/
+         },
          success:function(datos){
             $("#resultado").html(datos); 
+            alert(datos);
          },
          failure:function(){
              alert("algo muy malo paso");
@@ -39,14 +40,14 @@ $(document).ready(function(e) {
 
 <form class="form-inline">
   <div class="form-group">
-    <label for="exampleInputName2">Titulo</label>
-    <input type="text" class="form-control" id="titulo" placeholder="mete tu titulo">
+    <label for="exampleInputName2">id</label>
+    <input type="text" class="form-control" id="id" placeholder="mete tu titulo">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail2">Cuerpo</label>
-    <input type="text" class="form-control" id="cuerpo" placeholder="echame tu cuerpo">
+    <label for="exampleInputEmail2">nuevo precio</label>
+    <input type="text" class="form-control" id="precio" placeholder="echame tu cuerpo">
   </div>
-  <button id="guardar" type="button" class="btn btn-default">Guardar mensajito</button>
+  <button id="guardar" type="button" class="btn btn-default">Actualizar producto</button>
 </form>
     <div id="resultado"></div>
 </body>

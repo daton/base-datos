@@ -15,9 +15,9 @@ import java.sql.*;
 public class Conexion {
     
     public static Connection conectarse()throws Exception{
-        String url="jdbc:oracle:thin:@localhost:1521:XE";
+        String url="jdbc:oracle:thin:@localhost:1521:orcl";
        Class.forName("oracle.jdbc.OracleDriver");
-       Connection con=DriverManager.getConnection(url,"CAMPITOS","campitos");
+       Connection con=DriverManager.getConnection(url,"system","system");
        return con;
     }
     
