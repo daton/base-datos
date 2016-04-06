@@ -31,19 +31,24 @@
 
                     });
                 });//Termina guardar
-                 //Buscar todos los productos
-                    $("#buscar-producto").click(function () {
-                        console.log("Buscaremos los productos");
-                        $.ajax({
-                            dataType: "json",
-                            url: "buscar-producto",
-                            success: function (datos) {
-                              $("#mis-productos").html(datos.length)
-                            }
-                        });
+                //Buscar todos los productos
+                $("#buscar-producto").click(function () {
+                    console.log("Buscaremos los productos");
+                    $.ajax({
+                        dataType: "json",
+                        url: "buscar-producto",
+                        success: function (datos) {
+                            $("#mis-productos").html(datos.length);
+                            $.each(datos, function (key, val) {
+                              $("#mis-productos").append("<li>"+val.descripcion+"---"+val.precio+"</li>")
+                            });
+
+
+                        }
                     });
-                    
-                    
+                });
+
+
             });
         </script>
 
