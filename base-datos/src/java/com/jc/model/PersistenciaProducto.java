@@ -42,7 +42,9 @@ public class PersistenciaProducto {
     
     //El paso final, transformamo a objeto json con jackson
     ObjectMapper maper=new ObjectMapper();
-     
+
+     st.close();
+     con.close();
      return maper.writeValueAsString(productos); 
    }
 
