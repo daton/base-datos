@@ -38,9 +38,11 @@
                         dataType: "json",
                         url: "buscar-producto",
                         success: function (datos) {
-                            $("#mis-productos").html(datos.length);
+                            $("#mis-productos").html("");
                             $.each(datos, function (key, val) {
-                              $("#mis-productos").append("<li>"+val.descripcion+"---"+val.precio+"</li>")
+               $("#mis-productos").append("<tr class='success'>")
+      $("#mis-productos").append("<td>" + val.idProducto + "</td><td>" + val.descripcion + "</td><td>" + val.precio + "</td>")
+                    $("#mis-productos").append("</tr>")
                             });
 
 
@@ -70,7 +72,23 @@
         <br>
         <h2>Buscar todos los productos</h2>
         <button id="buscar-producto">Buscar todos los productos</button>
-        <div id="mis-productos"></div>
+
+        <table class="table">
+            <thead>
+                <tr class="warning">
+                    <th>Nombre del producto</th>
+                    <th>Descripcion</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody id="mis-productos">
+
+
+
+
+            </tbody>
+        </table> 
+
     </body>
 </html>
 
