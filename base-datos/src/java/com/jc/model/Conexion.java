@@ -14,6 +14,13 @@ package com.jc.model;
 import java.sql.*;
 public class Conexion {
     
+    public static Connection conectarse(String usuario, String password)throws Exception{
+        String url="jdbc:oracle:thin:@localhost:1521:xe";
+       Class.forName("oracle.jdbc.OracleDriver");
+       Connection con=DriverManager.getConnection(url,usuario,password);
+       return con;
+    }
+    
     public static Connection conectarse()throws Exception{
         String url="jdbc:oracle:thin:@localhost:1521:xe";
        Class.forName("oracle.jdbc.OracleDriver");

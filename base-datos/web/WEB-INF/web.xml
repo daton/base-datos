@@ -24,6 +24,10 @@
         <servlet-name>ServletBusccarProductos</servlet-name>
         <servlet-class>com.jc.controladores.ServletBusccarProductos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletAutenticarUsuario</servlet-name>
+        <servlet-class>com.jc.controladores.ServletAutenticarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Algo</servlet-name>
         <url-pattern>/hola</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ServletBusccarProductos</servlet-name>
         <url-pattern>/buscar-producto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAutenticarUsuario</servlet-name>
+        <url-pattern>/autenticar2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
