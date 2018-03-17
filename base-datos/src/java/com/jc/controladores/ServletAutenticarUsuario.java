@@ -25,9 +25,13 @@ public class ServletAutenticarUsuario extends HttpServlet {
    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            response.setContentType("text/html;charset=UTF-8");
+        
+          response.setContentType("text/html;charset=UTF-8");
             
+            PrintWriter salida=response.getWriter();
+            
+        try {
+          
             String usuario=   request.getParameter("usuario");
             String password=request.getParameter("password");
             
@@ -37,10 +41,13 @@ public class ServletAutenticarUsuario extends HttpServlet {
             Conexion.conectarse(usuario, password);
             
             System.out.println("Si te autenticaste");
+            
+            salida.println("Si te autenticaste");
             //RequestDispatcher despachador=   request.getRequestDispatcher("/principal.html"); 
            // despachador.forward(request, response);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+            salida.println(ex.getMessage());
         }
      
         

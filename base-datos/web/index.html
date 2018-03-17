@@ -4,16 +4,25 @@
         <meta charset="utf-8">
         <title>Proyecto de base de datos 2 con ajax</title>
         <link rel="stylesheet" href="css/bootstrap.css"/>
-
+        <script src="jquery-1.6.4.min.js"></script>
     </head>
     <body>
         <h1>Proyecto de base de datos II</h1>
         <!--  vamos a generar l vista de la autenticacion -->
-        <form action="autenticar2" method="post">
-            <input type="text" name="usuario" placeholder="Tu Usuario"   >
-            <input type="password" name="password" placeholder="Tu password">
-            <input type="submit" value="ingrear" class="btn btn-outline-danger">
+        <div id="ventana-autenticar">
+            <input type="text" id="usuario" placeholder="Tu Usuario"   >
+            <input type="password" id="password" placeholder="Tu password">
+            <button class="btn btn-outline-danger" id="ingresar">Ingresar</button>
             
-        </form>
+            <div id="respuesta">
+                
+            </div>
+        </div>
+        <div  id="bienvenido" hidden>
+      
+            
+            <p>Aqui ira una interface muy bonita</p>
+        </div>
+        <script src="js/autenticarse.js" ></script>
     </body>
 </html>

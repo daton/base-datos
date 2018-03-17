@@ -54,7 +54,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletAutenticarUsuario</servlet-name>
-        <url-pattern>/autenticar2</url-pattern>
+        <url-pattern>/autenticate-tonto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
