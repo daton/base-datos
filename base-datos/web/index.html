@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <title>Proyecto de base de datos 2 con ajax</title>
         <link rel="stylesheet" href="css/bootstrap.css"/>
+       
         <script src="jquery-1.6.4.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+      
+
     </head>
     <body>
         <h1>Proyecto de base de datos II</h1>
@@ -13,16 +17,23 @@
             <input type="text" id="usuario" placeholder="Tu Usuario"   >
             <input type="password" id="password" placeholder="Tu password">
             <button class="btn btn-outline-danger" id="ingresar">Ingresar</button>
-            
+
             <div id="respuesta">
-                
+
             </div>
         </div>
-        <div  id="bienvenido" hidden>
-      
-            
-            <p>Aqui ira una interface muy bonita</p>
+        <div  id="bienvenido">
+
+
+            <h2>Aqui ira una interface muy bonita</h2>
+            <h3>Guardar un almacen</h3>
+            <input type="text" id="numero_almacen" placeholder="numero de almacen"/><br>
+            <input type="text" id="ubicacion_almacen" placeholder="ubicacion de almacen" /><br>
+            <button class="btn btn-dark" id="guardar_almacen"> Guardar almacen</button>
+            <div id="resultado_guardar" ></div>
+
         </div>
         <script src="js/autenticarse.js" ></script>
+        <script src="js/almacen.js"></script>
     </body>
 </html>
