@@ -21,7 +21,8 @@ $("#ingresar").click(function(){
        },
        success:function(gato){
            $("#respuesta").html(gato);
-         
+         $("#bienvenido").show();
+         $("#ingresar").hide();
        
        }
    })
