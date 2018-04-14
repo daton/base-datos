@@ -32,6 +32,14 @@
         <servlet-name>ServletGuardarAlmacen</servlet-name>
         <servlet-class>com.jc.controladores.ServletGuardarAlmacen</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletBuscarAlmacen</servlet-name>
+        <servlet-class>com.jc.controladores.ServletBuscarAlmacen</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscarAlmacenPorId</servlet-name>
+        <servlet-class>com.jc.controladores.BuscarAlmacenPorId</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Algo</servlet-name>
         <url-pattern>/hola</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>ServletGuardarAlmacen</servlet-name>
         <url-pattern>/guardar-almacen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletBuscarAlmacen</servlet-name>
+        <url-pattern>/buscar-almacen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarAlmacenPorId</servlet-name>
+        <url-pattern>/buscar-almacen-id</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
