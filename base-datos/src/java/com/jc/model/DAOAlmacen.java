@@ -88,7 +88,7 @@ public class DAOAlmacen {
             }
 
         } catch (Exception e) {
-
+            System.out.println("Error es este "+e.getMessage());
         }
 
         return datos;

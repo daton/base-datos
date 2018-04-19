@@ -42,6 +42,15 @@ public class ServletGuardarAlmacen extends HttpServlet {
         
         ObjectMapper maper=new ObjectMapper();
         
+        //Generamos un objeto de respusta, JAVA
+        Estatus estatus=new Estatus();
+        estatus.setSuccess(true);
+        estatus.setMensaje("Almacen guardado con éxito");
+        //Preparamos la salida
+        PrintWriter salida=response.getWriter();
+        
+        //Convertimos a JSON y enviamos
+        salida.print(maper.writeValueAsString(estatus));
         
     
     }

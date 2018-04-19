@@ -13,9 +13,26 @@ $("#guardar_almacen").click(function () {
         },
         success: function (datos) {
        
-         $("#resultado_guardar").html(datos.mensaje);
+         $("#resultado_guardar").html(datos);
+         console.log(datos);
             
         }
     })
 
 })
+
+//Buscar todos los almacenes
+
+
+    //activamos ajax
+    $.ajax('buscar-almacen', {
+        type: 'get',
+        dataType:'json',
+        success: function (datos) {
+       
+       for(var i=0;i<datos.length;i++){
+           $("#tablita").append('<tr><td>'+datos[i].numero_almacen+'</td>"+<td>'+datos[i].ubicacion_almacen+'</td></tr>')
+       }
+            
+        }
+    })
