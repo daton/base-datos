@@ -8,23 +8,25 @@ package com.jc.model;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import oracle.jdbc.internal.OracleTypes;
 
 /**
  *
  * @author campitos
  */
-public class TestProcedimiento {
+public class TestRefCursor {
     public static void main(String args[])throws Exception{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
-     CallableStatement callate=con.prepareCall("{call guardar_pelicula(?,?,?)}");
-        callate.registerOutParameter(1,java.sql.Types.INTEGER);
-        callate.setString(2,"jurassic park");
-        callate.setString(3,"Promete ser buena");
-      
+     CallableStatement callate=con.prepareCall("{call buscar_peliculas(?)}");
+        callate.registerOutParameter(1,OracleTypes.CURSOR);
+       
         callate.execute();
-        int pk=callate.getInt(1);
-        System.out.println("El id ingresado es:"+pk);
+     ResultSet res=(ResultSet) callate.getObject(1);
+       while(res.next()){
+           System.out.println("Titulo "+res.getString(2));
+       }
     }
     
 }
