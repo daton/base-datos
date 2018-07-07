@@ -11,9 +11,19 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script  src="js/bootstrap.min.js"></script>
+       
         <link rel="stylesheet" href="css/bootstrap.css"/>
     </head>
     <body>
         <h2>Bienvenido a Oracle!!</h2>
+        <h3>Introduce los datos para guardar una pelicula</h3>
+        <input type="text" id="titulo" placeholder="titulo de la pelicula"/>
+        <br>
+        <textarea id="sinopsis" rows="4" cols="40" placeholder="sinopsis">
+        </textarea>
+        <button class="btn btn-danger" id="guardar-pelicula">Guardar pelicula</button>
+        <br>
+        <div id="resultado"></div>
+        <script src="js/pelicula.js" ></script>
     </body>
 </html>
