@@ -16,6 +16,10 @@ $("#guardar-pelicula").click(function () {
         data:{
             titulo:$("#titulo").val(),
             sinopsis:$('#sinopsis').val()
+        },
+        dataType:'json',
+        success:function(datos){
+            
         }
         
     });
