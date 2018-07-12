@@ -35,7 +35,7 @@ public class ServletPeliculaInsertar extends HttpServlet {
     //GET-          BUSCAR POR ID O TODOS
     //PUT -         PARA HACER UN UPDATE EN LA BASE DE DATOS
     //DELETE -      PARA BORRAR
-    protected void doGet(HttpServletRequest request, 
+    protected void doPost(HttpServletRequest request, 
             HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -48,9 +48,12 @@ public class ServletPeliculaInsertar extends HttpServlet {
       try{
             //Se invoca el procedimiento
          out.println( DAOPelicula.guardarPelicula(titulo, sinopsis));
+            System.out.println("SE guardo la pelicula");
             
-            
-      }catch(Exception e){  }
-        
+      }catch(Exception e){ 
+         out.println("Hubo un error "+e.getMessage());
+          System.out.println("HUbo un error "+e.getMessage());
+      }
+     
     }
 }

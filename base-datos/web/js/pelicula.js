@@ -9,8 +9,9 @@
 //Manejamos el evento del boton cuyo id es guardar-pelicula
 
 $("#guardar-pelicula").click(function () {
-    alert("Probando el click del botón");
-    
+    //alert("Probando el click del botón");
+     //activamos ajax
+    console.log("El titulo es"+$('#titulo').val())
     $.ajax('insertar-pelicula',{
         type:'post',
         data:{

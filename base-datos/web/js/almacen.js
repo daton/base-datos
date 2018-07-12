@@ -3,7 +3,7 @@
 
 $("#guardar_almacen").click(function () {
 
-    //activamos ajax
+   
     $.ajax('guardar-almacen', {
         type: 'post',
         dataType:'json',
