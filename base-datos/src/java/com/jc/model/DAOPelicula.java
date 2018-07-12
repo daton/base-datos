@@ -32,9 +32,10 @@ public class DAOPelicula {
     }
     
     
-    public static  String buscarTodasPeliculas(){
+    public static  ArrayList<Pelicula> buscarTodasPeliculas(){
         //primero nos conectamos a Oracle
         String resultado="no hay nada";
+          ArrayList<Pelicula> peliculas=new ArrayList<Pelicula>();
         try{
    Connection con=     Conexion.conectarse();
        Statement st=  con.createStatement();
@@ -42,7 +43,7 @@ public class DAOPelicula {
          ResultSet res= st.executeQuery("select * from pelicula");
        //Iterar ek resulset para ver los resultados de mi cueri
          int contador=0;
-         ArrayList<Pelicula> peliculas=new ArrayList<Pelicula>();
+       
          while(res.next()){
              Pelicula p=new Pelicula();
                     p.setId(res.getInt(1));
@@ -56,7 +57,7 @@ public class DAOPelicula {
             }catch(Exception e){
             resultado=e.getMessage();
         }
-        return resultado;
+        return peliculas;
     }
     
 
