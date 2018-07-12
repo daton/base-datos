@@ -11,7 +11,12 @@
 $("#guardar-pelicula").click(function () {
     alert("Probando el click del botón");
     
-    $.ajax('http://localhost:8084/base-datos/insertar-pelicula',{
+    $.ajax('insertar-pelicula',{
+        type:'post',
+        data:{
+            titulo:$("#titulo").val(),
+            sinopsis:$('#sinopsis').val()
+        }
         
     });
 });
