@@ -19,7 +19,7 @@ $("#guardar-pelicula").click(function () {
         },
         dataType:'json',
         success:function(datos){
-            
+           $('#resultado').html(datos); 
         }
         
     });
