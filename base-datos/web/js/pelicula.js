@@ -14,13 +14,15 @@ $("#guardar-pelicula").click(function () {
     console.log("El titulo es"+$('#titulo').val())
     $.ajax('insertar-pelicula',{
         type:'post',
+     
         data:{
             titulo:$("#titulo").val(),
             sinopsis:$('#sinopsis').val()
         },
-        dataType:'json',
+    
         success:function(datos){
-           $('#resultado').html(datos); 
+           $("#resultado").html(datos.mensaje); 
+           console.log(datos.mensaje);
         }
         
     });

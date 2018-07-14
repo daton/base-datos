@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
@@ -45,10 +46,16 @@ public class ServletPeliculaInsertar extends HttpServlet {
        String titulo= request.getParameter("titulo");
        String sinopsis=request.getParameter("sinopsis");
        System.out.println("NOs lelgo el titulo:"+titulo);
+       Estatus estatus=new Estatus();
+      
       try{
             //Se invoca el procedimiento
          out.println( DAOPelicula.guardarPelicula(titulo, sinopsis));
-            System.out.println("SE guardo la pelicula");
+         estatus.setSuccess(true);
+         estatus.setMensaje("Pelicula guardada con exito");
+         ObjectMapper maper=new ObjectMapper();
+         
+            System.out.println(maper.writeValueAsString(estatus));
             
       }catch(Exception e){ 
          out.println("Hubo un error "+e.getMessage());
