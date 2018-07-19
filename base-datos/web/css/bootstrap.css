@@ -35,6 +35,10 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.colorcito{
+    color: red;
+}
+
 *,
 *::before,
 *::after {
@@ -8973,3 +8977,4 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+

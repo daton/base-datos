@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import oracle.jdbc.internal.OracleTypes;
 
 /**
  *
@@ -40,15 +41,21 @@ public class DAOPelicula {
    Connection con=     Conexion.conectarse();
        Statement st=  con.createStatement();
        //Con el statement realizamos los cueris
-         ResultSet res= st.executeQuery("select * from pelicula");
+       //  ResultSet res= st.executeQuery("select * from pelicula");
        //Iterar ek resulset para ver los resultados de mi cueri
+         CallableStatement callate = con.prepareCall("{call buscar_peliculas(?)}");
+        callate.registerOutParameter(1, OracleTypes.CURSOR);
+        
+        callate.execute();
+        ResultSet res = (ResultSet) callate.getObject(1);
          int contador=0;
        
          while(res.next()){
              Pelicula p=new Pelicula();
                     p.setId(res.getInt(1));
                     p.setTitulo(res.getString(2));
-                   p.setSinopsis(res.getString(3));
+                     p.setSinopsis(res.getString(3));
+                     
                     peliculas.add(p);
          }
          

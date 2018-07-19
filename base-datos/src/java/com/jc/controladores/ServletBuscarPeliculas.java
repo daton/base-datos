@@ -22,14 +22,13 @@ import org.codehaus.jackson.map.ObjectMapper;
  */
 public class ServletBuscarPeliculas extends HttpServlet {
 
-    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-    ArrayList<Pelicula> peliculas=  DAOPelicula.buscarTodasPeliculas();
-    ObjectMapper mapeo=new ObjectMapper();
-  out.println(  mapeo.writeValueAsString(peliculas));
-        
+        ArrayList<Pelicula> peliculas = DAOPelicula.buscarTodasPeliculas();
+        ObjectMapper mapeo = new ObjectMapper();
+        out.println(mapeo.writeValueAsString(peliculas));
+
     }
 }
