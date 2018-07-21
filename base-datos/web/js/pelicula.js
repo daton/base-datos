@@ -19,7 +19,25 @@ $("#guardar-pelicula").click(function () {
 
     });
 });
+/*
+ *  borrar pelicula
+ */
+$("#borrarPelicula").click(function () {
+   console.log("valor de id "+$("#id-pelicula").val());
+    $.ajax('borrar-pelicula', {
+        type: 'delete',
+        dataType:'json',
+        data: {
+         idmalo: $("#id-pelicula").val()
 
+        },
+
+        success: function (estatus) {
+         alert(estatus.mensaje)
+        }
+
+    });
+});
 /*
  * hacemos una llamada a AJAX  para buscar las peliculas
  */
